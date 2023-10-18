@@ -1,7 +1,8 @@
 from cod_generator import generar
+from abc import ABC, abstractmethod
 
 
-class Usuario:
+class Usuario(ABC):
 
     def __init__(self, nombre: str, apellido: str, email: str, contra: str) -> None:
         self.__nombre = nombre
@@ -12,6 +13,7 @@ class Usuario:
     def __str__(self) -> str:
         return f"""\nNombre: {self.__nombre} \nApellido: {self.__apellido} \nEmail: {self.__email} \nContraseña: {self.__contra}"""
 
+    @abstractmethod
     def validar_credenciales(self, email: str, contra: str):
         pass
 
@@ -38,7 +40,6 @@ class Estudiante(Usuario):
         self.__mis_cursos = []  # aca se almacenaran los cursos que cursa
 
     def __str__(self) -> str:
-
         return f"""{super().__str__()} \nLegajo: {self.__legajo} \nAño de inscripcion: {self.__anio_inscripcion} \nCursando: {self.__mis_cursos}"""
 
     def matricular_en_curso(self, curso: Curso):
