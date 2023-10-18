@@ -12,6 +12,5 @@ class Usuario(ABC):
     def __str__(self) -> str:
         return f"""\nNombre: {self.__nombre} \nApellido: {self.__apellido} \nEmail: {self.__email} \nContraseña: {self.__contra}"""
 
-    @abstractmethod
     def validar_credenciales(self, email: str, contra: str):
         pass
