@@ -3,36 +3,45 @@ from curso import Curso
 import os
 
 
-def ingreso_profesor(profesores):
+def ingreso_profesor(profesores, cursos):
+    os.system("cls")
     email = input("Ingrese su e-mail: ")
     contra = input("Ingrese su contraseña: ")
 
+    bandera = False
+    cont = 0
     for profesor in profesores:
         if email == profesor.email:
-            if profesor.validar_credenciales(email, contra):
+            bandera = True
+            break
+        else:
+            cont += 1
+
+    if cont >= len(profesores) and not(bandera):
+        print("\nEl usuario no se encuentra en el sistema")
+        x = input("\nPresione ENTER para continuar")
+    else:
+        if profesor.validar_credenciales(email, contra):
                 os.system("cls")
-                sub_menu(profesor)
-                break
-            else:
-                print("\nLa contraseña o el email ingresados son incorrectos")
-                x = input("Presione ENTER para continuar")
+                sub_menu(profesor, cursos)
         else:
             print("\nLa contraseña o el email ingresados son incorrectos")
             x = input("\nPresione ENTER para continuar")
 
 
-def sub_menu(profesor):
+def sub_menu(profesor, cursos):
     op = 0
     while op != 3:
+        os.system("cls")
         print("1- Dictar curso")
         print("2- Ver cursos")
         print("3- Volver al menu principal")
         op = int(input("\nIngrese una opcion: "))
 
         if op == 1:
-            dictar_curso(profesor)
+            dictar_curso(profesor, cursos)
         elif op == 2:
-            pass  # ver cursos
+            ver_cursos(profesor)
         elif op == 3:
             pass
         else:
@@ -40,7 +49,8 @@ def sub_menu(profesor):
             print("Ingreso un valor incompatible, intentelo nuevamente\n")
 
 
-def dictar_curso(profesor):
+def dictar_curso(profesor, cursos):
+    os.system("cls")
     nombre_curso = input("Ingrese el nombre del curso: ")
     nombre_curso = nombre_curso.title()
     curso = Curso(nombre_curso)
@@ -50,9 +60,13 @@ def dictar_curso(profesor):
     print("El curso se registro correctamente!!")
     x = input("\nPresione ENTER para continuar")
 
+
+
 def ver_cursos(profesor):
-    for curso in profesor.mis_cursos():
+    for curso in profesor.mis_cursos():      # NO ANDA
         print(curso)
         print("---------------------------------------")
+
+    x = input("\nPresione ENTER para continuar")
 
 
