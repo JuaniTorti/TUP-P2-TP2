@@ -1,6 +1,8 @@
-from app import *
+from curso import Curso
+from estudiante import Estudiante
+from profesor import Profesor
 
-def precarga():
+def precarga(cursos,profesores,estudiantes):
 
     #precarga estudiantes
     estudiante = Estudiante("Juan", "Torti", "nachi.tortjuani@gmail.com", "sapito123", 53286, 2010)

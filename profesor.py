@@ -14,4 +14,8 @@ class Profesor(Usuario):
         return f"""{super().__str__()} \nTitulo: {self.__titulo} \nAño de egreso: {self.__anio_egreso} \nCurso que dicta: {self.__mis_cursos}"""
 
     def dictar_curso(self, curso: Curso):
-        pass
+        self.__mis_cursos.append(curso)
+
+    @property
+    def mis_cursos(self):
+        return self.__mis_cursos 

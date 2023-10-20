@@ -17,3 +17,7 @@ class Usuario(ABC):
             return True
         else:
             return False
+
+    @property
+    def email(self):
+        return self.__email
