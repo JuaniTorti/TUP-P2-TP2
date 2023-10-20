@@ -19,11 +19,11 @@ while op != 4:
     op = int(input("\nIngrese una opcion: "))
 
     if op == 1:
-        #ingreso como estudiante
+        pass#ingreso como estudiante
     elif op == 2:
-        #ingreso como profe
+        pass#ingreso como profe
     elif op == 3:
-        # mostrar cursos
+        pass# mostrar cursos
     elif op == 4:
         os.system("cls")
         print("Hasta pronto!!")

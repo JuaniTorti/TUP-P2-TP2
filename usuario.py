@@ -13,4 +13,7 @@ class Usuario(ABC):
         return f"""\nNombre: {self.__nombre} \nApellido: {self.__apellido} \nEmail: {self.__email} \nContraseña: {self.__contra}"""
 
     def validar_credenciales(self, email: str, contra: str):
-        pass
+        if email == self.__email and contra == self.__contra:
+            return True
+        else:
+            return False
