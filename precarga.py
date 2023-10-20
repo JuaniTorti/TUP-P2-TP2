@@ -13,3 +13,13 @@ def precarga():
     profesores.append(profesor)
     profesor = Profesor("Vanina", "Nich", "vaninanich@gmail.com", "oplus00","Analista en sistemas", 1986)
     profesores.append(profesor)
+
+    #precarga cursos
+    curso = Curso("Matematica I")
+    cursos.append(curso)
+    curso = Curso("Ingles I")
+    cursos.append(curso)
+    curso = Curso("Programacion I")
+    cursos.append(curso)
+    curso = Curso("Metodologia de la investigaion")
+    cursos.append(curso)
