@@ -1,4 +1,3 @@
-from usuario import Usuario
 from cod_generator import generar
 
 class Curso:
