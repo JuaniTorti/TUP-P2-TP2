@@ -43,7 +43,8 @@ def sub_menu(profesor, cursos):
             pass
         else:
             os.system("cls")
-            print("Ingreso un valor incompatible, intentelo nuevamente\n")
+            print("\nIngreso un valor incompatible, intentelo nuevamente")
+            x = input("\nPresione ENTER para continuar")
 
 
 def dictar_curso(profesor, cursos):
