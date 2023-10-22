@@ -9,15 +9,12 @@ def ingreso_profesor(profesores, cursos):
     contra = input("Ingrese su contraseña: ")
 
     bandera = False
-    cont = 0
     for profesor in profesores:
         if email == profesor.email:
             bandera = True
             break
-        else:
-            cont += 1
 
-    if cont >= len(profesores) and not(bandera):
+    if not(bandera):
         print("\nEl usuario no se encuentra en el sistema")
         x = input("\nPresione ENTER para continuar")
     else:
