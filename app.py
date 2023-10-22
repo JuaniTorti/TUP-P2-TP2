@@ -1,7 +1,7 @@
 from precarga import precarga
 import os
 from ingreso_profesor import ingreso_profesor
-
+from funciones_estudiante import *
 cursos = []
 profesores = []
 estudiantes = []
@@ -18,7 +18,7 @@ while op != 4:
     op = int(input("\nIngrese una opcion: "))
 
     if op == 1:
-        pass#ingreso como estudiante
+        ingreso_estudiante(estudiantes,cursos)#ingreso como estudiante
     elif op == 2:
         ingreso_profesor(profesores, cursos) #ingreso como profe
     elif op == 3:

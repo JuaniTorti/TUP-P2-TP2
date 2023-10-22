@@ -12,3 +12,7 @@ class Curso:
     @classmethod
     def __generar_contraseña(cls):
         return generar()
+    
+    @property
+    def nombre(self):
+        return self.__nombre
