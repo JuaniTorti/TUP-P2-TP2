@@ -16,6 +16,7 @@ class Profesor(Usuario):
     def dictar_curso(self, curso: Curso):
         self.__mis_cursos.append(curso)
 
-    @property
-    def mis_cursos(self):
-        return self.__mis_cursos 
+    def mostrar_cursos(self):
+        for curso in self.__mis_cursos:
+            print(curso)
+            print("------------------")

@@ -60,9 +60,9 @@ def dictar_curso(profesor, cursos):
 
 
 def ver_cursos(profesor):
-    for curso in profesor.mis_cursos():      # NO ANDA
-        print(curso)
-        print("---------------------------------------")
+    
+    os.system("cls")
+    profesor.mostrar_cursos()
 
     x = input("\nPresione ENTER para continuar")
 
