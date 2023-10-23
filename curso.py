@@ -16,3 +16,7 @@ class Curso:
     @property
     def nombre(self):
         return self.__nombre
+    
+    @property
+    def clave(self):
+        return self.__clave

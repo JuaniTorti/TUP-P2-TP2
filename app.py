@@ -2,6 +2,7 @@ from precarga import precarga
 import os
 from ingreso_profesor import ingreso_profesor
 from funciones_estudiante import *
+from mostrar_cursos import *
 
 cursos = []
 profesores = []
@@ -23,7 +24,7 @@ while op != 4:
     elif op == "2":
         ingreso_profesor(profesores, cursos) #ingreso como profe
     elif op == "3":
-        pass# mostrar cursos
+        mostrar(cursos)
     elif op == "4":
         os.system("cls")
         print("Hasta pronto!!")

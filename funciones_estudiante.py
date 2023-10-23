@@ -30,31 +30,43 @@ def menu(estudiante,cursos):
         print("3- Volver al menú principal ")
         op = int(input("\nIngrese una opcion: "))
 
-        cantidad_cursos = 1 # cuanta todas los cursos que hay en total
-        if op == 1:
-            for i in cursos:
-                print(f"[{cantidad_cursos}] {i.nombre}\n")
-                cantidad_cursos = cantidad_cursos+1
+        x = 1               #cuenta todas los cursos que hay en total se usa tanto para que se pueda elegir una matria y para mas adelante hacer la validacion
+        if op == 1:         #de que si el numero de curso que ingresó el usuario es mayor o menor al total de cursos se informe el error
+            x = 1
+        for curso in cursos:
+            print(f"[{x}] - {curso.nombre}\n") #mostrar opciones
+            x += 1
                 
-            curso_a_inscribir = int(input("Ingrese el número del curso en el cual se quiere inscribir "))
+        curso_a_inscribir = input("Ingrese el número del curso en el cual se quiere inscribir: ") #ingreso de opcion
+
+        bandera = False
+        while not(bandera): #queda en true y entra al bucle
             
-            while curso_a_inscribir <= cantidad_cursos and curso_a_inscribir > 0:
-                
-                if curso_a_inscribir <= cantidad_cursos and curso_a_inscribir > 0:
-                    
-                    estudiante.matricular_en_curso(cursos[curso_a_inscribir-1]) #cursos es la lista cursos que esta en app.py 
-                    print("Inscripción exitosa!!")                              #y le paso el indice que seleccionó el usuario menos 1
-                    input("Presione cualquier tecla para continuar ")
-                    
-                    os.system('cls')
-                    break
-                
-                elif curso_a_inscribir > cantidad_cursos or curso_a_inscribir <= 0:
-                    os.system('cls')                            
-                    print("Ingresó un curso erroneo ")
-                    
-                
-        
+            if curso_a_inscribir.isdigit() and int(curso_a_inscribir) <= x and int(curso_a_inscribir) > 0:
+                bandera = True
+            else: 
+                print("\nIngresó una opcion invalida, intentelo nuevamente ")
+                curso_a_inscribir = input("Ingrese el número del curso en el cual se quiere inscribir: ") #se pide el ingreso dev hasta que lo ingrese bien
+
+        ya_anotado = False
+        for curso in estudiante.mis_cursos:
+            if curso == cursos[int(curso_a_inscribir)-1]: #validacion de si ya esta inscripto
+                ya_anotado = True
+                print("Ya esta inscripto en este curso")
+            
+        if not(ya_anotado):
+            clave = input("ingrese la clave de matriculacion: ")
+
+            if clave == cursos[int(curso_a_inscribir)-1].clave:
+                os.system("cls")
+                estudiante.matricular_en_curso(cursos[int(curso_a_inscribir)-1])  #si no esta inscripto se pide la clave y se inscribe
+                print("Inscripción exitosa!!")                              
+                input("Presione cualquier tecla para continuar ")
+            else:
+                os.system("cls")
+                print("la clave es invalida")
+                input("Presione cualquier tecla para continuar ")
+    
         elif op == 2:
             for curso in estudiante.mis_cursos:
                 print(curso.nombre) 
