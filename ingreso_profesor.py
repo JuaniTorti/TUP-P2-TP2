@@ -28,18 +28,18 @@ def ingreso_profesor(profesores, cursos):
 
 def sub_menu(profesor, cursos):
     op = 0
-    while op != 3:
+    while op != '3':
         os.system("cls")
         print("1- Dictar curso")
         print("2- Ver cursos")
         print("3- Volver al menu principal")
-        op = int(input("\nIngrese una opcion: "))
+        op = input("\nIngrese una opcion: ")
 
-        if op == 1:
+        if op == '1':
             dictar_curso(profesor, cursos)
-        elif op == 2:
+        elif op == '2':
             ver_cursos(profesor)
-        elif op == 3:
+        elif op == '3':
             pass
         else:
             os.system("cls")
