@@ -5,7 +5,7 @@ def mostrar(cursos):
     for curso in sorted(cursos, key=lambda curso: curso.nombre):
         print(f"Materia: {curso.nombre}\nClave: {curso.clave}")
         print("---------------------------------")
-    input("Presione cualquier tecla para continuar")       
+    input("\nPresione cualquier tecla para continuar")       
    
     """
     lo que hace este for es tomar cada curso que esta dentro de la lista y mostrarlos con el 

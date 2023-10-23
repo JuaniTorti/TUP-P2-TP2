@@ -5,7 +5,7 @@ import os
 
 def ingreso_profesor(profesores, cursos):
     os.system("cls")
-    email = input("Ingrese su e-mail: ")
+    email = input("Ingrese su email: ")
     contra = input("Ingrese su contraseña: ")
 
     bandera = False
@@ -30,6 +30,7 @@ def sub_menu(profesor, cursos):
     op = 0
     while op != '3':
         os.system("cls")
+        print("---MENU PROFESOR---")
         print("1- Dictar curso")
         print("2- Ver cursos")
         print("3- Volver al menu principal")
@@ -61,12 +62,16 @@ def dictar_curso(profesor, cursos):
 
 
 def ver_cursos(profesor):
-    
     os.system("cls")
-    for curso in profesor.mis_cursos:
-        print(curso)
-        print("----------------------------------")
-
+    cant_cursos = len(profesor.mis_cursos)
+    
+    if cant_cursos > 0:
+        for curso in profesor.mis_cursos:
+            print(curso)
+            print("----------------------------------")
+    else:
+        print("No se encuentra dictando ningun curso")
+    
     x = input("\nPresione ENTER para continuar")
 
 
