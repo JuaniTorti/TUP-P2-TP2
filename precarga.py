@@ -5,7 +5,7 @@ from profesor import Profesor
 def precarga(cursos,profesores,estudiantes):
 
     #precarga estudiantes
-    estudiante = Estudiante("Juan", "Torti", "nachi.tortjuani@gmail.com", "sapito123", 53286, 2010)
+    estudiante = Estudiante("Juan", "Torti", "nachi.tortjuani@gmail.com", "sapito123", 53286, 2010) 
     estudiantes.append(estudiante)
     estudiante = Estudiante("Maria", "Gomez", "Mari_gomez@hotmail.com", "//vllc", 45963, 1997)
     estudiantes.append(estudiante)

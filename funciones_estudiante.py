@@ -9,21 +9,24 @@ def ingreso_estudiante(estudiantes,cursos):
     for i in estudiantes:
         if email == i.email:
            i.validar_credenciales(email,contra) 
-           if i.validar_credenciales(email,contra):
-               menu(i,cursos)
-           else:
-               print("Ingresó los datos incorrectamente")
+           if i.validar_credenciales(email,contra):        #esta función lo que hace es pedirle al usuario que ingrese un email y un password, luego toma ese email ingresado y lo 
+               menu(i,cursos)                              #busca en los email guardados de los estudiantes (los objetos estudiantes) si lo encuentra llama al metodo validar_credenciales
+           else:                                           #y si devuelve un True llama a la funcion menu pasandole de parametro la i (que es el estudiante que inicia sesion) y la lista de cursos 
+               print("Contraseña incorrecta")              #si devuelve False se le indica que la contraseña es incorrecta y si k llega a ser mayor que la longitud de la lista estudiantes
+               input("Presione cualquier tecla para continuar")# es porque el email ingresado no fué encontrado
         else:
             k = k+1
         if k >= len(estudiantes):
             print("No existe ningún alumno con ese correo, si quiere darse de alta, debe hacerlo en alumnado.")
+            input("Presione cualquier tecla para continuar")
                
             
             
 def menu(estudiante,cursos):
-    os.system('cls')
+    
     op = 0
     while op != 3:
+        os.system('cls')
         print("---MENU ESTUDIANTE---")
         print("1- Matricularse a un curso ") 
         print("2- Ver cursos ") 
@@ -68,17 +71,23 @@ def menu(estudiante,cursos):
                     input("Presione cualquier tecla para continuar ")
     
         elif op == 2:
-            for curso in estudiante.mis_cursos:
-                print(curso.nombre) 
+            x = len(estudiante.mis_cursos)
+            if x == 0:
+                print("El alumno no está inscripto a ningún curso")
+                input("Presione cualquier tecla para continuar")
+            else:
+                for curso in estudiante.mis_cursos:
+                    print(curso.nombre)
+                input("Presione cualquier tecla para continuar")
                 
                 """
-                lo que hace esto es: la curso va tomando cada objeto de la lista que se encuentra en el atributo de la clase estudiante pero los objetos 
+                lo que hace esto es: la variable curso va tomando cada objeto de la lista que se encuentra en el atributo de la clase estudiante pero los objetos 
                 que estan dentro de esa lista son de la clase "cursos" por lo cual muestro su nombre (el nombre de cada objeto dentro de la lista) 
                 con el getter de la clase "cursos"
                 """
     
         elif op == 3:
-            break #debe volver al menu principal
+            break 
         else: 
             os.system("cls")
             print("Ingresó un valor incompatible, intentelo nuevamente\n")
