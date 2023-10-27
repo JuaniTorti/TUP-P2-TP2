@@ -7,10 +7,11 @@ from mostrar_cursos import *
 cursos = []
 profesores = []
 estudiantes = []
-precarga(cursos,profesores,estudiantes)
+carreras = []
+precarga(cursos,profesores,estudiantes,carreras)
 
 op = 0
-while op != 4:
+while op != "4":
     os.system("cls")
     print("---MENU PRINCIPAL---")
     print("1- Ingresar como estudiante")
