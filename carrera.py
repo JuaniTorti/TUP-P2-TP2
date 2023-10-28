@@ -9,4 +9,15 @@ class Carrera:
         return f"Nombre: {self.__nombre} \nCantidad de años: {self.__cant_anios}"
     
     def get_cantidad_materias(self):
-        return len(self.__cursos)
+        return len(self.__cursos) 
+    
+    @property
+    def nombre(self):
+        return self.__nombre
+    
+    @property
+    def curosos(self):
+        return self.__cursos
+    
+    def add_curso(self, curso):
+        self.__cursos.append(curso)

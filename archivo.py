@@ -7,4 +7,4 @@ class Archivo:
         self.__formato: formato
 
     def __str__(self) -> str:
-        return f"{self.__nombre}.{self.__formato}"
+        return f"{self.__nombre}.{self.__formato}" 

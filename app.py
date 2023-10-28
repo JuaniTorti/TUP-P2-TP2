@@ -8,7 +8,7 @@ cursos = []
 profesores = []
 estudiantes = []
 carreras = []
-precarga(cursos,profesores,estudiantes,carreras)
+precarga(profesores,estudiantes,carreras)
 
 op = 0
 while op != "4":
@@ -23,7 +23,7 @@ while op != "4":
     if op == "1":
         ingreso_estudiante(estudiantes,cursos)#ingreso como estudiante
     elif op == "2":
-        ingreso_profesor(profesores, cursos) #ingreso como profe
+        ingreso_profesor(profesores, cursos, carreras) #ingreso como profe
     elif op == "3":
         mostrar(cursos)
     elif op == "4":

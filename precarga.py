@@ -1,9 +1,8 @@
-from curso import Curso
 from estudiante import Estudiante
 from profesor import Profesor
 from carrera import Carrera
 
-def precarga(cursos,profesores,estudiantes,carreras):
+def precarga(profesores,estudiantes,carreras):
 
     #precarga carrera
     carrera = Carrera("Ingenieria en sistemas", 5)
