@@ -84,7 +84,7 @@ def dictar_curso(profesor, cursos, carreras):
         print("\nIngreso una opcion invalida, intentelo nuevamente")
         op_carrera = input("\nIngrese la opcion de la carrera en la que desea dictar un curso: ") #valido la seleccion
     
-    carrera_selec = carreras[op_carrera - 1] #me guardo la carrera para asignarle a la materia
+    carrera_selec = carreras[int(op_carrera) - 1] #me guardo la carrera para asignarle a la materia
 
     os.system("cls")
     nombre_curso = input("Ingrese el nombre del curso: ") #carga de datos
