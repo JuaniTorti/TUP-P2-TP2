@@ -15,7 +15,7 @@ def precarga(profesores,estudiantes,carreras):
     estudiantes.append(estudiante)
 
     #precarga profesores
-    profesor = Profesor("Carlos", "Rossi", "car.ross@gmail.com", "lunes13","Licenciado en matematica", 1961)
+    profesor = Profesor("Carlos", "Rossi", "a", "a","Licenciado en matematica", 1961)
     profesores.append(profesor)
     profesor = Profesor("Vanina", "Nich", "vaninanich@gmail.com", "oplus00","Analista en sistemas", 1986)
     profesores.append(profesor)

@@ -23,3 +23,7 @@ class Estudiante(Usuario):
     @property
     def mis_cursos(self):
         return self.__mis_cursos
+    
+    @property
+    def carrera(self):
+        return self.__carrera
