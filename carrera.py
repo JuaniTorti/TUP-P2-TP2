@@ -16,7 +16,7 @@ class Carrera:
         return self.__nombre
     
     @property
-    def curosos(self):
+    def cursos(self):
         return self.__cursos
     
     def add_curso(self, curso):
