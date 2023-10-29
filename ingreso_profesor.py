@@ -111,7 +111,7 @@ def ver_cursos(profesor):
         op_curso = input("\nIngrese una opcion para ver la informacion del curso: ")
         while not(op_curso.isdigit()) or (int(op_curso) > x or int(op_curso) <= 0):
             print("\nIngreso una opcion invalida, intentelo nuevamente")
-            op_curso = input("\nIngrese una opcion para ver la informacion del curso: ")
+            op_curso = input("Ingrese una opcion para ver la informacion del curso: ")
 
         os.system("cls")
         print(profesor.mis_cursos[int(op_curso) - 1]) #se muestra la info del curso seleccionado

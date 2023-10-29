@@ -43,4 +43,8 @@ class Curso:
     def carrera(self):
         return self.__carrera
     
+    @property
+    def archivos(self):
+        return self.__archivos
+    
     
