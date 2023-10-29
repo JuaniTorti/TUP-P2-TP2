@@ -31,12 +31,26 @@ def menu(estudiante,cursos):
     while op != 3:
         os.system('cls')
         print("---MENU ESTUDIANTE---")
-        print("1- Matricularse a un curso ") 
-        print("2- Ver cursos ") 
-        print("3- Volver al menú principal ")
+        print("1 - Matricularse a un curso ") 
+        print("2 - Ver cursos ") 
+        print("3 - Desmatricularse de un curso ") 
+        print("4 - Volver al menú principal ")
         op = int(input("\nIngrese una opcion: "))
+        
+        if op == 1:
+            matricularse(estudiante,cursos)
+        elif op == 2:
+            ver_cursos(estudiante,cursos)
+        elif op == 3:
+            desmatricular(estudiante,cursos)
+        elif op == "4":
+            break
+        else:
+            os.system("cls")
+            print("Ingreso un valor incompatible, intentelo nuevamente")
+            x = input("\nPresione ENTER para continuar")
 
-        x = 1               
+    def matricularse(estudiante,cursos): #op1
         if op == 1:  
             os.system("cls")       
             x = 1
@@ -74,8 +88,8 @@ def menu(estudiante,cursos):
                     os.system("cls")
                     print("La clave es invalida")
                     input("\nPresione cualquier tecla para continuar ")
-    
-        elif op == 2:
+
+    def ver_cursos(estudiante,cursos): #op2
             x = len(estudiante.mis_cursos)
             if x == 0:
                 print("El alumno no está inscripto a ningún curso")
@@ -92,10 +106,40 @@ def menu(estudiante,cursos):
                 que estan dentro de esa lista son de la clase "cursos" por lo cual muestro su nombre (el nombre de cada objeto dentro de la lista) 
                 con el getter de la clase "cursos"
                 """
-    
-        elif op == 3:
-            break 
-        else: 
-            os.system("cls")
-            print("Ingresó un valor incompatible, intentelo nuevamente\n")
+                
+    def desmatricular(estudiante,curso): #op3 no testeada 
+         os.system("cls")       
+         x = 1
+         for curso in cursos:
+             print(f"[{x}] - {curso.nombre}\n") #mostrar opciones
+             x += 1
+                 
+         curso_a_desinscribir = input("Ingrese el número del curso en el cual se quiere desinscribir: ") #ingreso de opcion
+         
+         if curso_a_desinscribir.isdigit() and int(curso_a_desinscribir) <= x and int(curso_a_desinscribir) > 0:
+             bandera = True
+         else: 
+             print("\nIngresó una opcion invalida, intentelo nuevamente ")
+             curso_a_inscribir = input("Ingrese el número del curso en el cual se quiere inscribir: ") #se pide el ingreso dev hasta que lo ingrese bien
+         
+         no_anotado = True
+         for curso in estudiante.mis_cursos:
+             if curso == cursos[int(curso_a_inscribir)-1]: #validacion de si ya esta inscripto
+                 no_anotado = False
+                 print("No está inscripto en este curso")
+                 input("\nPresione cualquier tecla para continuar ")
+                 
+         if no_anotado:
+                 os.system("cls")
+                 estudiante.desmatricular_curso(cursos[int(curso_a_desinscribir)-1])  
+                 print("\nDesinscripción exitosa!!")                              
+                 input("\nPresione cualquier tecla para continuar ")
+            
+            
+            
+        #elif op == 4:
+         #   break 
+        #else: 
+         #   os.system("cls")
+          #  print("Ingresó un valor incompatible, intentelo nuevamente\n")
                 
