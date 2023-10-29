@@ -36,5 +36,5 @@ class Curso:
         return cls.prox_cod     
                                 
     @property
-    def codigo(self):
+    def get_codigo(self):
         return self.__codigo
