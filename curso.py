@@ -13,7 +13,7 @@ class Curso:
         self.__carrera = carrera
 
     def __str__(self) -> str:
-        return f"""Nombre: {self.__nombre} \nClave de matriculacion: {self.__clave}"""
+        return f"Nombre: {self.__nombre} \nClave de matriculacion: {self.__clave} \nCodigo: {self.__codigo} \nCantidad de archivos: {len(self.__archivos)}"
     
     def nuevo_archivo(self, archivo: Archivo):
         self.__archivos.append(archivo)

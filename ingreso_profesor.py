@@ -1,6 +1,7 @@
 from profesor import Profesor
 from curso import Curso
 import os
+from archivo import Archivo
 
 
 def ingreso_profesor(profesores, cursos, carreras):
@@ -104,12 +105,39 @@ def ver_cursos(profesor):
     cant_cursos = len(profesor.mis_cursos)
     
     if cant_cursos > 0:
+        x = 1
         for curso in profesor.mis_cursos:
-            print(curso)
-            print("----------------------------------")
+            print(f"{x}- {curso.nombre}")
+            x += 1
+
+        op_curso = input("\nIngrese una opcion para ver la informacion del curso: ")
+        while not(op_curso.isdigit()) or (int(op_curso) > x or int(op_curso) <= 0):
+            print("\nIngreso una opcion invalida, intentelo nuevamente")
+            op_curso = input("\nIngrese una opcion para ver la informacion del curso: ")
+
+        os.system("cls")
+        print(profesor.mis_cursos[int(op_curso) - 1]) #se muestra la info del curso seleccionado
+
+        op = input("\nDesea agregar un archivo al curso? (si/no): ")
+        while op.lower() != "si" and op.lower() != "no":
+            op = input("\nIngrese una respuesta valida: ")
+
+        if op.lower() == "si":
+            os.system("cls")
+            agregar_archivo(profesor, op_curso)
+            os.system("cls")
+            print("Nuevo archivo agregado exitosamente!!")
+            input("\nPresione ENTER para continuar")
+
     else:
         print("No se encuentra dictando ningun curso")
-    
-    input("\nPresione ENTER para continuar")
+        input("\nPresione ENTER para continuar")
 
 
+def agregar_archivo(profesor, op_curso):
+    nombre = input("Ingrese el nombre del archivo: ")
+    formato = input("Ingrese el formato del archivo: ")
+
+    archivo = Archivo(nombre, formato)
+
+    profesor.mis_cursos[int(op_curso) - 1].nuevo_archivo(archivo)
