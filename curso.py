@@ -32,5 +32,9 @@ class Curso:
     
     @classmethod
     def codigo(cls):
-        cls.prox_cod += 1
-        return cls.prox_cod
+        cls.prox_cod += 1       
+        return cls.prox_cod     
+                                
+    @property
+    def codigo(self):
+        return self.__codigo
