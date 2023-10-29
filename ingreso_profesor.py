@@ -84,17 +84,15 @@ def dictar_curso(profesor, cursos, carreras):
     while not(op_carrera.isdigit()) or (int(op_carrera) > x or int(op_carrera) <= 0):
         print("\nIngreso una opcion invalida, intentelo nuevamente")
         op_carrera = input("\nIngrese la opcion de la carrera en la que desea dictar un curso: ") #valido la seleccion
-    
-    carrera_selec = carreras[int(op_carrera) - 1] #me guardo la carrera para asignarle a la materia
 
     os.system("cls")
     nombre_curso = input("Ingrese el nombre del curso: ") #carga de datos
     nombre_curso = nombre_curso.title()                    
-    curso = Curso(nombre_curso, carrera_selec)
+    curso = Curso(nombre_curso, carreras[int(op_carrera) - 1])
 
     cursos.append(curso) #agrego a la lista cursos
     profesor.dictar_curso(curso) #agrego a la lista mis_cursos del profesor
-    carrera_selec.add_curso(curso) #agrego el curso a la carrera
+    carreras[int(op_carrera) - 1].add_curso(curso) #agrego el curso a la carrera
     print("El curso se registro correctamente!!")
     input("\nPresione ENTER para continuar")
 
