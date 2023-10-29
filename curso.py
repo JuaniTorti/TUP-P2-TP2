@@ -38,3 +38,9 @@ class Curso:
     @property
     def get_codigo(self):
         return self.__codigo
+    
+    @property
+    def carrera(self):
+        return self.__carrera
+    
+    

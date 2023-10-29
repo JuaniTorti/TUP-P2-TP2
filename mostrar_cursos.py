@@ -3,7 +3,7 @@ import os
 def mostrar(cursos):
     os.system('cls')
     for curso in sorted(cursos, key=lambda curso: curso.nombre):
-        print(f"Materia: {curso.nombre}\nClave: {curso.clave}")
+        print(f"Materia: {curso.nombre}\nCarrera: {curso.carrera.nombre}")
         print("---------------------------------")
     input("\nPresione cualquier tecla para continuar")       
    

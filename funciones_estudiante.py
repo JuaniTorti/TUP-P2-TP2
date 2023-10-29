@@ -41,7 +41,7 @@ def menu(estudiante,cursos):
         if op == 1:
             matricularse(estudiante,cursos)
         elif op == 2:
-            ver_cursos(estudiante,cursos)
+            ver_cursos(estudiante)
         elif op == 3:
             desmatricular(estudiante,cursos)
         elif op == 4:
@@ -53,9 +53,8 @@ def menu(estudiante,cursos):
 
 def matricularse(estudiante,cursos): #op1
         
-    input()
     x = 1
-    for curso in sorted(estudiante.carrera.cursos, key=lambda curso:curso.codigo):  #le muestro solo los cursos que pertenecen a la carrera a la cual pertenece el estudiante
+    for curso in sorted(estudiante.carrera.cursos, key=lambda curso:curso.get_codigo):  #le muestro solo los cursos que pertenecen a la carrera a la cual pertenece el estudiante
             print(f"[{x}] - {curso.nombre}\n") 
             x += 1
             
@@ -85,7 +84,7 @@ def matricularse(estudiante,cursos): #op1
 
         if clave == cursos[int(curso_a_inscribir)-1].clave:
             os.system("cls")
-            estudiante.matricular_en_curso(cursos[int(curso_a_inscribir)-1])  #si no esta inscripto se pide la clave y se inscribe
+            estudiante.matricular_en_curso(estudiante.carrera.cursos[int(curso_a_inscribir)-1])#si no esta inscripto se pide la clave y se inscribe
             print("\nInscripción exitosa!!")                              
             input("\nPresione cualquier tecla para continuar ")
         else:
@@ -114,11 +113,12 @@ def ver_cursos(estudiante): #op2
 def desmatricular(estudiante,curso): #op3 no testeada 
     os.system("cls")       
     x = 1
-    for curso in estudiante.carrera.curso:  #le muestro solo los cursos que pertenecen a la carrera a la cual pertenece el estudiante
+    for curso in estudiante.mis_cursos:  #le muestro solo los cursos que pertenecen a la carrera a la cual pertenece el estudiante
         print(f"[{x}] - {curso.nombre}\n")  #por ahora no me muestra ningun curso porque no hay cursos cargados
         x += 1
     
     curso_desmatricular = input("Ingrese el numero del curso del cual se quiere desmatricular")
+    print(int(curso_desmatricular))
     
     
     #valido que ingrese una opcion valida
@@ -126,8 +126,10 @@ def desmatricular(estudiante,curso): #op3 no testeada
     while not(bandera): #queda en true y entra al bucle
         
         #isdigit devuelve si es un numero
-        if curso_desmatricular.isdigit() and int(curso_desmatricular) <= len(estudiante.carrera.curso) and int(curso_desmatricular) > 0: 
-            estudiante.carrera.curso.remove(curso_desmatricular)
+        if curso_desmatricular.isdigit() and int(curso_desmatricular) <= len(estudiante.carrera.cursos) and int(curso_desmatricular) > 0: 
+            estudiante.desmatricular_curso(estudiante.mis_cursos[int(curso_desmatricular) -1]) 
+            bandera = True
+            input("Se desmatriculó con éxito!!!")
         else: 
             print("\nIngresó una opcion invalida, intentelo nuevamente ")
             curso_desmatricular = input("Ingrese el número del curso en el cual se quiere inscribir: ") #se pide el ingreso dev hasta que lo ingrese bien
