@@ -1,7 +1,7 @@
-from profesor import Profesor
-from curso import Curso
+from Clases.profesor import Profesor
+from Clases.curso import Curso
 import os
-from archivo import Archivo
+from Clases.archivo import Archivo
 
 
 def ingreso_profesor(profesores, cursos, carreras):

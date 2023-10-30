@@ -1,5 +1,5 @@
 import os
-from usuario import *
+from Clases.usuario import *
 
 
 def ingreso_estudiante(estudiantes,cursos):
@@ -140,6 +140,7 @@ def desmatricular(estudiante,curso): #op3 no testeada
         if curso_desmatricular.isdigit() and int(curso_desmatricular) <= len(estudiante.carrera.cursos) and int(curso_desmatricular) > 0: 
             estudiante.desmatricular_curso(estudiante.mis_cursos[int(curso_desmatricular) -1]) 
             bandera = True
+            os.system("cls")
             print("Se desmatriculó con éxito!!!")
             input("\nPresione cualquier tecla para continuar")
         else: 

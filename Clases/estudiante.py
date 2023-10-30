@@ -1,6 +1,6 @@
-from usuario import Usuario
-from curso import Curso
-from carrera import Carrera
+from .usuario import Usuario
+from .curso import Curso
+from .carrera import Carrera
 
 class Estudiante(Usuario):
 

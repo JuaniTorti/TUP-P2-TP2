@@ -1,5 +1,5 @@
-from usuario import Usuario
-from curso import Curso
+from .usuario import Usuario
+from .curso import Curso
 
 
 class Profesor(Usuario):

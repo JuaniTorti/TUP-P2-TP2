@@ -1,6 +1,6 @@
-from estudiante import Estudiante
-from profesor import Profesor
-from carrera import Carrera
+from Clases.estudiante import Estudiante
+from Clases.profesor import Profesor
+from Clases.carrera import Carrera
 
 def precarga(profesores,estudiantes,carreras):
 

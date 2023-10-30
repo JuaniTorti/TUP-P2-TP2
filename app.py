@@ -1,8 +1,8 @@
-from precarga import precarga
+from Funciones.precarga import precarga
 import os
-from ingreso_profesor import ingreso_profesor
-from funciones_estudiante import *
-from mostrar_cursos import *
+from Funciones.ingreso_profesor import ingreso_profesor
+from Funciones.funciones_estudiante import *
+from Funciones.mostrar_cursos import *
 
 cursos = []
 profesores = []

@@ -1,6 +1,6 @@
-from cod_generator import generar
-from archivo import Archivo
-from carrera import Carrera
+from Funciones.cod_generator import generar
+from .archivo import Archivo
+from .carrera import Carrera
 
 class Curso:
     prox_cod = 0
