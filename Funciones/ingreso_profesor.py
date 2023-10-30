@@ -140,4 +140,7 @@ def agregar_archivo(profesor, op_curso):
 
     archivo = Archivo(nombre, formato)
 
-    profesor.mis_cursos[int(op_curso) - 1].nuevo_archivo(archivo)
+    profesor.mis_cursos[int(op_curso) - 1].nuevo_archivo(archivo) #le agrego el archivo al curso sleccionado con el metodo 
+
+    #no guardo el curso en una variable para que sea mas facil de leer ya que si modifico a esa varible
+    #no se vera ese cambio en la lista mis_cursos (solo sirve guardar en una var para operar los datos, no para modificarlos)
