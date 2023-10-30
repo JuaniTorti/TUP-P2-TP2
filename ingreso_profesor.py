@@ -93,7 +93,9 @@ def dictar_curso(profesor, cursos, carreras):
     cursos.append(curso) #agrego a la lista cursos
     profesor.dictar_curso(curso) #agrego a la lista mis_cursos del profesor
     carreras[int(op_carrera) - 1].add_curso(curso) #agrego el curso a la carrera
-    print("El curso se registro correctamente!!")
+    os.system("cls")
+    print("\nEl curso se registro correctamente!!\n")
+    print(curso)
     input("\nPresione ENTER para continuar")
 
 
